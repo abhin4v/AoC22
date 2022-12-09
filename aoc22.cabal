@@ -5,16 +5,15 @@ license:            MIT
 copyright:          2022 Abhinav Sarkar
 maintainer:         abhinav@abhinavsarkar.net
 author:             Abhinav Sarkar
-
 extra-source-files:
   LICENSE
   README.md
 
 common shared
   ghc-options:
-    -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns
+    -Wall -Wincomplete-record-updates
     -Wmissing-deriving-strategies -Wunused-foralls -Wunused-foralls
-    -fprint-explicit-foralls -fprint-explicit-kinds
+    -fprint-explicit-foralls -fprint-explicit-kinds -freduction-depth=0
 
   default-extensions:
     NoStarIsType
@@ -58,11 +57,28 @@ common shared
     ViewPatterns
 
   build-depends:
-    , base          >=4.13.0.0 && <4.18.0.0.0
+    , base   >=4.13.0.0 && <4.18.0.0.0
+    , split
 
   hs-source-dirs:     src
   default-language:   Haskell2010
 
-executable aoc22
+executable day1
   import:  shared
-  main-is: Main.hs
+  main-is: Day1.hs
+
+executable day2
+  import:  shared
+  main-is: Day2.hs
+
+executable day2-tl
+  import:  shared
+  main-is: Day2TypeLevel.hs
+
+executable day3
+  import:  shared
+  main-is: Day3.hs
+
+executable day6
+  import:  shared
+  main-is: Day6.hs

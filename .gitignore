@@ -10,3 +10,6 @@ result-*
 
 # direnv
 .direnv
+
+# AoC
+inputs/
